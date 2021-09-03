@@ -1,0 +1,48 @@
+<p>
+<head>
+<style>
+  h1 {font-size: 60px; text-align: center; font-family: "Garamond"; color: white;}
+  h2 {font-family: "Garamond"; font-size: 30px; font-weight: bold; color: white;}
+  marquee {font-size: 20px; font-family: "Garamond";}
+  label {font-size: 30px; font-weight: 400; color: white; font-family: "Garamond";}
+  input {font-size: 30px; font-family: "Garamond";}
+  button {text-align: center; font-size: 25px; font-family: "Garamond";}
+  .backgroundImage {
+   background-image: url("http://media-s3-us-east-1.ceros.com/business-insider/images/2017/12/08/f7e1c323169d464797c86b950ea93eca/bi-graphics-02-greenhouse-gas-effect-warmed.gif");
+   height: 100%;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   }
+</style>
+</head>
+</p>  
+
+<div class="backgroundImage"/>
+
+<br><h1>SOLAR RADIATION PREDICTION</h1>
+  
+<center><label>Solar irradiance is the power per unit area received from the Sun in the form of electromagnetic radiation.</label><br><br><br>
+  
+<form action="{{ url_for("rad_pred")}}" method="post">
+  
+<label for="t">Temperature (in F):</label>
+<input id="t" name="temp" type="text" placeholder="add temperature" /><br><br><br>
+  
+<label for="h">Humidity (%):</label>
+<input id="h" name="humidity" type="text" placeholder="add humidity" /><br><br><br>
+
+<label for="ws">Wind Speed (in mph):</label>
+<input id="ws" name="wspeed" type="text" placeholder="add wind speed" /><br><br><br>
+
+<label for="wd">Wind Direction (in degrees):</label>
+<input id="wd" name="wdir" type="text" placeholder="add wind direction" /><br><br><br><br>
+            
+<button type="submit">Predict Radiation</button></form>
+
+<h2>{{output}}</h2><br></center>
+
+<marquee direction="left" style="background:white" scrollamount="10";>
+It is presumed that exposure to radiation, even at the levels of natural background, may involve some additional risk of cancer. || There is also experimental evidence from animal studies that exposure to radiation can cause genetic effects. || By knowing the value of radiation at a place, one can take appropriate steps to take protection from it depending upon its intensity.
+</marquee>
+</div>

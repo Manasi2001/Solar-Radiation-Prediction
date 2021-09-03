@@ -3,3 +3,5 @@ Flask==1.1.2
 joblib==0.17.0
 gunicorn==20.1.0
 sklearn
+matplotlib
+catboost

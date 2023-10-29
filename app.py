@@ -18,8 +18,17 @@ def rad_pred():
        humidity = request.form.get("humidity")
        wspeed = request.form.get("wspeed")
        wdir = request.form.get("wdir")
-       p = model.predict(np.array([temp, humidity, wspeed, wdir]).reshape(-4,4))
-       output = 'Radiation in your area is: %.2f' % (p)+' W/m2'
+       try:
+         p = model.predict(np.array([temp, humidity, wspeed, wdir]).reshape(-4,4))
+         if p>0 and p<= 200:
+           type = 'low'
+         elif p>200 and p<600:
+           type = 'moderate'
+         elif p>= 600:
+           type = 'high'
+         output = 'Radiation in your area is: %.2f' % (p)+' W/m2' + '\n' + 'Solar radiation levels are ' + type
+       except:
+         output = 'Recheck your inputs.'
        return render_template('main.html', output=output)
     return render_template('main.html')
   

@@ -26,7 +26,7 @@ def rad_pred():
            type = 'moderate'
          elif p>= 600:
            type = 'high'
-         output = 'Radiation in your area is: %.2f' % (p)+' W/m2' + '\n' + 'Solar radiation levels are ' + type
+         output = 'Radiation in your area is: %.2f' % (p)+' W/m2. Solar radiation levels are ' + type + '.'
        except:
          output = 'Recheck your inputs.'
        return render_template('main.html', output=output)
